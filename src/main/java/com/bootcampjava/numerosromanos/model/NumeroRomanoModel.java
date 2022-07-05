@@ -2,35 +2,24 @@ package com.bootcampjava.numerosromanos.model;
 
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
 @Repository
 public class NumeroRomanoModel {
-
-    private Hashtable<String, String> romanNumeric = new Hashtable<>();
+    private int[] listOfNumbers;
+    private String[]romanNumerals;
 
     public NumeroRomanoModel() {
-        this.romanNumeric.put("1", "I");
-        this.romanNumeric.put("4", "IV");
-        this.romanNumeric.put("5", "V");
-        this.romanNumeric.put("9", "IX");
-        this.romanNumeric.put("10", "X");
-        this.romanNumeric.put("40", "XL");
-        this.romanNumeric.put("50", "L");
-        this.romanNumeric.put("90", "XC");
-        this.romanNumeric.put("100", "C");
-        this.romanNumeric.put("400", "CD");
-        this.romanNumeric.put("500", "D");
-        this.romanNumeric.put("900", "CM");
-        this.romanNumeric.put("1000", "M");
+        this.listOfNumbers = new int[]{ 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000 };
+        this.romanNumerals = new String[]{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
     }
 
 
-    public Map<String, String> getRomanNumeric() {
-        return romanNumeric;
+    public int[] getListOfNumbers() {
+        return listOfNumbers;
     }
-    // private final String db = "src/main/resources/dataBase.json";
-
+    public  String[] getRomanNumerals() { return romanNumerals; }
 }
