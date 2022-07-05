@@ -8,24 +8,35 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/calculator")
 public class NumeroRomanoController {
 
     @Autowired
-    private NumeroRomanoModel repo;
+    private NumeroRomanoModel model;
 
 
 
-    @GetMapping("/{number}")
-    public ResponseEntity<String> getNumber(@PathVariable String number) {
-        Hashtable<String, String> dictRomansNumeralData = ((Hashtable<String, String>)repo.getRomanNumeric());
+    @GetMapping("/{numberParams}")
+    public ResponseEntity<String> getNumber(@PathVariable int numberParams) {
+        String roman ="";
 
-       String roman = dictRomansNumeralData.get(number);
+        while (numberParams != 0) {
+            ArrayList<Integer> listOfNumbers = model.getListOfNumbers();
+            int t = numberParams;
+            ArrayList<Integer> array = (ArrayList<Integer>) listOfNumbers.stream()
+                    .filter(n -> n <= t).collect(Collectors.toList());
+            int index = array.size() -1;
+            int num = array.get(index);
+
+            roman += model.getRomanNumerals().get(listOfNumbers.indexOf(num));
+            numberParams -= num;
+
+        }
+
 
         return ResponseEntity.ok(roman);
     }
