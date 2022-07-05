@@ -9,17 +9,42 @@ import java.util.Map;
 
 @Repository
 public class NumeroRomanoModel {
-    private int[] listOfNumbers;
-    private String[]romanNumerals;
+    private ArrayList<Integer> listOfNumbers = new ArrayList<Integer>();
+    private ArrayList<String>romanNumerals =  new ArrayList<String>();;
 
     public NumeroRomanoModel() {
-        this.listOfNumbers = new int[]{ 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000 };
-        this.romanNumerals = new String[]{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
-    }
+        this.listOfNumbers.add(1);
+        this.listOfNumbers.add(4);
+        this.listOfNumbers.add(5);
+        this.listOfNumbers.add(9);
+        this.listOfNumbers.add(10);
+        this.listOfNumbers.add(40);
+        this.listOfNumbers.add(50);
+        this.listOfNumbers.add(90);
+        this.listOfNumbers.add(100);
+        this.listOfNumbers.add(400);
+        this.listOfNumbers.add(500);
+        this.listOfNumbers.add(900);
+        this.listOfNumbers.add(1000);
+        this.romanNumerals.add("I");
+        this.romanNumerals.add("IV");
+        this.romanNumerals.add("V");
+        this.romanNumerals.add("IX");
+        this.romanNumerals.add("X");
+        this.romanNumerals.add("XL");
+        this.romanNumerals.add("L");
+        this.romanNumerals.add("XC");
+        this.romanNumerals.add("C");
+        this.romanNumerals.add("CD");
+        this.romanNumerals.add("D");
+        this.romanNumerals.add("CM");
+        this.romanNumerals.add("M");
+
+}
 
 
-    public int[] getListOfNumbers() {
+    public ArrayList<Integer> getListOfNumbers() {
         return listOfNumbers;
     }
-    public  String[] getRomanNumerals() { return romanNumerals; }
+    public  ArrayList<String> getRomanNumerals() { return romanNumerals; }
 }
